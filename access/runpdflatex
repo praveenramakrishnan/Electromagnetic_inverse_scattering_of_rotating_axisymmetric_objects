@@ -1,0 +1,4 @@
+pdflatex --shell-escape access.tex
+bibtex access.aux
+pdflatex --shell-escape access.tex
+rm *.aux
