@@ -494,6 +494,33 @@ values of SNR are unreliable with a 36 percent error even for SNR of 60 dB, whic
 \label{fig:error_beta_vs_SNR_farfield_error_10_degree}
 \end{figure}
 
+\subsection{The effect of different dielectric media} \label{subsec:effect_of_dielectric_media}
+
+Let us also examine the effect of changing the dielectric parameter, $\varepsilon_r$, on the accuracy of
+the reconstructed speed. The result for a rotating speed of $\beta = 8 \times 10^{-4}$ is presented in 
+Fig. \ref{fig:error_beta_vs_epsilonr_beta_8e-4}.
+The measurement are considered at $M = 200$ points on a circle of radius $R_m = 1.5$ m. 
+The permittivity values considered are $\varepsilon_r \in \{4, 8, 12, 16, 20\}$, 
+and the results are shown for three noise levels, SNR $\in \{30, 40, 50\}$ (dB).
+The reconstruction becomes more difficult if the scattering is weak and therefore
+we can in general expect a larger error for smaller values of $\varepsilon_r$. 
+This trend can be confirmed from the obtained results.
+For instance, with SNR = 40 dB, the relative error is 70 percent for $\varepsilon_r =4$
+while it reduces to 5.5 percent for $\varepsilon_r = 20$.
+Similarly the error goes from 100 percent to 25 percent 
+for SNR = 30 dB and from 20 percent to 2.4 percent SNR = 50 dB,
+as $\varepsilon_r$ increases from 4 to 20.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{figure_beta_error_vs_epsilonr_sphere_rotating_beta_8e-4.eps}
+	\caption{The mean relative error in the reconstructed value of $\beta$ vs $\varepsilon_r$
+             for the rotating sphere with $\beta = 8\times 10^{-4}$ and the measurements 
+             are considered at $M=200$ points on a circle of $R_m = 1.5$ m. 
+             The results are shown for three different values of SNR.}
+\label{fig:error_beta_vs_epsilonr_beta_8e-4}
+\end{figure}
+
 \subsection{Reconstruction of the speed of rotating torus} \label{subsec:reconstruction_rotating_torus}
 All the previous results were obtained for rotating sphere which admitted a semi analytic solution for the forward problem.
 Now we apply the algorithm to rotating homogeneous torus for which analytic solutions are not available, due to which a numerical forward solver has to be exploited.
