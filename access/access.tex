@@ -36,8 +36,8 @@ step, the values from the first step are used to determine the rotating speed. N
 of inverse problems are provided for the first time by considering test cases with rotating homogeneous
 sphere and torus. The two-step algorithm is compared against the general inversion algorithm that relies on
 global optimization considering all unknown variables simultaneously. It is demonstrated that the proposed
-algorithm outperforms the general inversion procedure for all speeds of practical interest. The results are
-analyzed for noisy data in the near-field and far-field.
+algorithm outperforms the general inversion procedure for all speeds of practical interest. 
+The results are analyzed for noisy data in the near-field and far-field.
 \end{abstract}
 
 \begin{keywords}
@@ -54,14 +54,14 @@ The electromagnetic problems involving moving objects are
 important in numerous applications like astrophysics, nuclear
 physics, plasma physics and engineering \cite{dezutterrotatingsphere}, 
 \cite{vanbladel}, \cite{yeh_opu_su_movingplasmahalfspace}, 
-\cite{yan_1996_mass_flow_measurement}.
+\cite{yan_1996_mass_flow_measurement}, \cite{li2020electromagnetic}.
 Although the most general problems need to be formulated
 in time domain \cite{vanbladel}, there are important applications where
 the motion of the objects is such that a frequency domain
 formulation is feasible \cite{cheng_kong_covariant}. 
 The moving media behave as
-bianisotropic materials in the laboratory frame even when it
-is isotropic in the rest frame \cite{noiscatteringellissimovimento}.
+bianisotropic materials in the laboratory frame even when they are
+isotropic in the rest frame \cite{noiscatteringellissimovimento}.
 
 A very important class of the problems involves rotating
 axisymmetric objects which can be studied using three-dimensional 
@@ -91,7 +91,7 @@ only slightly (second order effect) due to motion. This led
 to the algorithm in which the co-polarized component of
 the scattered field is used in the first step to reconstruct the
 dielectric and geometric properties of the media by ignoring
-the effects of motion. The values in the first step where then
+the effects of motion. The values deduced with the first step where then
 used in the second step to find the axial speed from the cross-
 polarized component. The authors were able to demonstrate
 the efficiency of the two-step procedure over directly using
@@ -106,7 +106,7 @@ problem in one large step.
 Further, in \cite{noinoiselimitation}, 
 the authors studied the limitations
 of the reconstruction algorithm when the measured
-data is noisy and the sensors have limited capabilities.
+data are noisy and the sensors have limited capabilities.
 
 In general three-dimensional problems the effects of bianisotropy
 are more complex \cite{kalarickel2020well}, 
@@ -114,10 +114,9 @@ are more complex \cite{kalarickel2020well},
 or even impossible to isolate field components able to provide
 so clear indication on the velocity field. 
 The first numerical
-results for the fields in the presence of motion in were
-presented in [7] and they indicate that the effect due to motion
-is not too large even from relatively high values of rotating
-speeds.
+results for the fields in the presence of motion were
+presented in \cite{kalarickel2020well} and they indicate that the effect due to 
+motion is not too large even for relatively high values of rotating speeds.
 Therefore, in this case, we propose to define a cost function using all the
 components of the fields in the first step which is used to
 reconstruct the geometric and dielectric properties assuming
@@ -145,7 +144,8 @@ analytic solver.
 
 The article is organized as follows. In Section \ref{sec:inversion_procedure}
 the problem is defined and the two-step algorithm employed for the
-inversion procedure is explained in detail. In Section \ref{sec:numerical_results} 
+inversion procedure is explained in detail. 
+In Section \ref{sec:numerical_results} 
 the numerical results for the inversion process are provided and
 the efficiency and reliability of the two-step procedure are
 studied. Finally, the conclusions of the article are discussed
@@ -156,19 +156,23 @@ in Section \ref{sec:conclusion}.
 %Problems involving moving media
 
 As mentioned in the previous section, the reconstruction of velocity profiles 
-of moving media using electromagnetic inverse scattering techniques is an important subject.
+of moving media using electromagnetic inverse scattering techniques is an 
+important subject.
 Such techniques have been exploited for axially moving cylinders in 
 \cite{noiricostruzioneepsrebeta}, \cite{noinoiselimitation}.
 Here we study the reconstruction of the rotating speeds of axisymmetric media,
-which has numerous practical applications, for example in the tachometry of celestial 
-bodies \cite{vanbladel}, \cite{dezutterrotatingsphere}, \cite{kalarickel2020well}.
+which has numerous practical applications, for example in the tachometry of 
+celestial bodies \cite{vanbladel}, \cite{dezutterrotatingsphere}, 
+\cite{kalarickel2020well}.
 
 %Explain inverse scattering
 
 The unknown parameters of the inverse scattering problem may be represented by 
-the algebraic vector ${\bf u} = ({\bf u}_g, {\bf u}_d, {\bf u}_v) \in \mathbb{R}^{I+J+K}$, 
-where ${\bf u}_g \in \mathbb{R}^I$ , ${\bf u}_d \in \mathbb{R}^J$ and ${\bf u}_v \in \mathbb{R}^K$ 
-are respectively the components having the geometric, dielectric and velocity 
+the algebraic vector 
+${\bf u} = ({\bf u}_g, {\bf u}_d, {\bf u}_v) \in \mathbb{R}^{I+J+K}$, 
+where ${\bf u}_g \in \mathbb{R}^I$ , ${\bf u}_d \in \mathbb{R}^J$ and 
+${\bf u}_v \in \mathbb{R}^K$ are respectively the components having the 
+geometric, dielectric and velocity 
 parameters \cite{noiricostruzioneepsrebeta}.
 
 A set of $S$ plane wave sources illuminate the scatterer. 
@@ -178,14 +182,17 @@ sensors whose positions are indicated by the parameter $m = 1, ..., M$.
 The measured electric and magnetic fields are denoted respectively by
 ${\bf E}^{meas}(s, m, {\bf u})$ and ${\bf H}^{meas}(s, m, {\bf u})$.
 
-For a trial solution ${\bf u}^{trial} = ({\bf u}^{trial}_g, {\bf u}^{trial}_d, {\bf u}^{trial}_v) \in \mathbb{R}^{I+J+K} $, 
+For a trial solution 
+${\bf u}^{trial} = ({\bf u}^{trial}_g, {\bf u}^{trial}_d, {\bf u}^{trial}_v) \in \mathbb{R}^{I+J+K} $, 
 we  may assume to have a forward scattering procedure (fsp), either semi analytic 
 \cite{dezutterrotatingsphere} or numerical \cite{kalarickel2020well}, that enables
-us to calculate the fields ${\bf E}^{fsp}(s, m, {\bf u}^{trial})$ and ${\bf H}^{fsp}(s, m, {\bf u}^{trial})$.
+us to calculate the fields ${\bf E}^{fsp}(s, m, {\bf u}^{trial})$ and 
+${\bf H}^{fsp}(s, m, {\bf u}^{trial})$.
 
 %Define cost function
-The above quantities can be used to define the following cost function, which is to be minimized
-using an optimization algorithm to get the best estimate of the unknown parameters:
+The above quantities can be used to define the following cost function, 
+which is to be minimized using an optimization algorithm to get the best 
+estimate of the unknown parameters:
 \begin{align} \label{eq:cost_fuction_general}
 	&CF({\bf u}, {\bf u}^{trial}) =  \notag \\
              &\frac{\sum_{s = 1}^S \sum_{m=1}^M ||{\bf E}^{fsp}(s, m, {\bf u}^{trial}) -  {\bf E}^{meas}(s, m, {\bf u})||^2}
@@ -196,11 +203,13 @@ using an optimization algorithm to get the best estimate of the unknown paramete
 Here the norms are just Euclidean norms for three-dimensional complex vectors.
 
 %Explain the two step procedure
-The above steps provide the general way to obtain the parameters using the inverse scattering algorithm.
-However, if the velocity of the rotating objects are small enough, then we may adopt a two-step procedure for the inversion.
-Since the contribution to the fields due to the rotation will be small, the media 
-may be assumed to be at rest for the reconstruction of geometric and dielectric data.
-Thus the cost function for the first step will be as follows:
+The above steps provide the general way to obtain the parameters using the 
+inverse scattering algorithm.
+However, if the velocity of the rotating objects are small enough, then we may 
+adopt a two-step procedure for the inversion.
+Since the contribution to the fields due to the rotation will be small, 
+the media may be assumed to be at rest for the reconstruction of geometric and 
+dielectric data. Thus the cost function for the first step will be as follows:
 
 \begin{align} \label{eq:cost_fuction_step1}
 	&CF_1({\bf u}, {\bf u}_1^{trial}) =  \notag \\
@@ -210,11 +219,14 @@ Thus the cost function for the first step will be as follows:
 		     {\sum_{s = 1}^S \sum_{m=1}^M ||{\bf H}^{meas}(s, m, {\bf u})||^2}.
 \end{align}
 
-Here the vector ${\bf u}^{trial}_1 = ({\bf u}^{trial}_g, {\bf u}^{trial}_d)$ contains the geometric and dielectric
-unknowns and the fields are calculated with the analytic solver for the rest case.
+Here the vector ${\bf u}^{trial}_1 = ({\bf u}^{trial}_g, {\bf u}^{trial}_d)$ 
+contains the geometric and dielectric unknowns and the fields are calculated 
+with the analytic or numerical solver for the rest case.
 
-In the second step, we estimate the velocity by optimizing the following cost function that uses forward scattering procedure for
-the rotating media along with the approximate geometric and dielectric data ${\bf u}_1^{as}$ obtained from the previous step:
+In the second step, we estimate the velocity by optimizing the following 
+cost function that uses forward scattering procedure for the rotating media 
+along with the approximate geometric and dielectric data ${\bf u}_1^{as}$ 
+obtained from the previous step:
 
 \begin{align} \label{eq:cost_fuction_step2}
 	&CF_2({\bf u}_, {\bf u}_1^{as}, {\bf u}_v^{trial}) =  \notag \\
@@ -224,33 +236,40 @@ the rotating media along with the approximate geometric and dielectric data ${\b
 		     {\sum_{s = 1}^S \sum_{m=1}^M ||{\bf H}^{meas}(s, m, {\bf u}_v)||^2}.
 \end{align}
 
-Both these steps are much simpler than using the cost function in \eqref{eq:cost_fuction_general}. 
+Both these steps are much simpler than using the cost function in 
+\eqref{eq:cost_fuction_general}. 
 For the first step, the forward scattering procedure is much simpler due to the
-lack of motion and the optimization is also simpler because the unknowns related to the velocity are not present. 
+lack of motion and the optimization is also simpler because the unknowns 
+related to the velocity are not present. 
 The second step is simpler as well, because it requires
 the optimization for only the velocity parameters. 
-Since the complexity of the optimization increases much faster than linear, the two steps combined can be more efficient than doing
+Since the complexity of the optimization increases much faster than linear, 
+the two steps combined can be more efficient than doing
 the direct optimization of the full cost function.
 
 %Explain optimizer, parameters used and stopping criteria
-For the optimization, here we adopt the differential evolution (DE) algorithm \cite{storn1997differential}.
-DE is a metaheuristic algorithm that starts with a random initial population of size $N_p$ in the search space and
-keeps on improving the solution by introducing stochastic variations to the candidate solutions until a termination criteria is satisfied.
-Here the condition used for termination is that either the maximum number of iterations, 
-$N_{lim}$, is reached or the cost function does not improve
+For the optimization, here we adopt the differential evolution (DE) algorithm 
+\cite{storn1997differential}.
+DE is a metaheuristic algorithm that starts with a random initial population 
+of size $N_p$ in the search space and
+keeps on improving the solution by introducing stochastic variations to 
+the candidate solutions until a termination criteria is satisfied.
+Here the condition used for termination is that either the maximum number 
+of iterations, $N_{lim}$, is reached or the cost function does not improve
 more than by a factor of $f_{conv}$ in $N_{conv}$ consecutive iterations.
 
 \section{Numerical results} \label{sec:numerical_results}
 
 In this section we provide some numerical results for the
-reconstruction of the unknown parameters of rotating ax-
-isymmetric objects from the scattered electromagnetic fields.
+reconstruction of the unknown parameters of rotating axisymmetric 
+objects from the scattered electromagnetic fields.
 The simulations are performed on a Intel i7-8565U, 1.8GHz,
 4 core machine with 16 GB RAM. It can be noted that for
 the proposed two-step algorithm, the first step involves the
 traditional problem of recreating the geometric and dielectric
 unknowns for stationary objects and is already widely studied
-in the literature. On the other hand, the second step of the
+in the literature \cite{pastorino2010microwave}. 
+On the other hand, the second step of the
 algorithm for the recreation of the rotating speeds is new
 and therefore is analyzed here more carefully. In Subsection 
 \ref{subsec:comparison_two_step_with_general}
@@ -272,8 +291,10 @@ restricted to be on an arc in the backscattered direction and
 when only the amplitude data is available. Subsection 
 \ref{subsec:reconstruction_from_farfield}
 examines results for the far-field and the effect of uncertainty
-in knowing the axis of rotation of the scatterer. Finally in
-\ref{subsec:reconstruction_rotating_torus}
+in knowing the axis of rotation of the scatterer. 
+In Subsection \ref{subsec:effect_of_dielectric_media}, the effect of
+changing the dielectric parameter on the accuracy of the algorithm is described.
+Finally in Subsection \ref{subsec:reconstruction_rotating_torus}
 a different test case is considered for which no analytic
 solution is available. A homogeneous rotating torus is studied
 for this and a numerical forward solver is exploited in the
@@ -287,15 +308,22 @@ We analyze the performance of the general algorithm as well
 as that of the two-step procedure for the reconstruction of the
 unknown parameters.
 
-A sphere of radius $R_s = 1$ m is considered which is rotating about the z axis at angular velocity $\omega_s$ rad/s and is
-illuminated by a single plane wave source ($S=1$) incident along x axis with a frequency of $f_s = 50$ MHz.
-The incident electric field is polarized along z axis.
+A sphere of radius $R_s = 1$ m is considered which is rotating about 
+the z axis at angular velocity $\omega_s$ rad/s and is
+illuminated by a single plane wave ($S=1$) incident along the x axis with 
+a frequency of $f_s = 50$ MHz.
+The incident electric field is polarized along the z axis.
 The geometry of the test case is shown in Fig. \ref{fig:geometry_sphere}. 
-The speed of rotation can be expressed in terms of the normalized quantity $\beta = \omega_s R_s/c_0$, where $c_0$ is the speed of light in vacuum.
-The results are for $\varepsilon_r = 8$ and $\beta \in \{ 8\times 10^{-3}, 8\times 10^{-4}, 8\times 10^{-5} \}$ and are calculated at $M = 200$ points
-uniformly distributed on a circle on xz plane of radius $R_m = 1.5$ m from the center of the scatterer.
-The electric and magnetic fields thus obtained are corrupted with a Gaussian noise of specified signal to noise ratio (SNR).
-We consider SNR dB levels in the set $\{20, 30, 40, 50, 60\}$ added to each component of the electric and magnetic fields.
+The speed of rotation can be expressed in terms of the normalized quantity 
+$\beta = \omega_s R_s/c_0$, where $c_0$ is the speed of light in vacuum.
+The results are for $\varepsilon_r = 8$ and 
+$\beta \in \{ 8\times 10^{-3}, 8\times 10^{-4}, 8\times 10^{-5} \}$ and are 
+calculated at $M = 200$ points uniformly distributed on a circle on xz plane 
+of radius $R_m = 1.5$ m from the center of the scatterer.
+The electric and magnetic fields thus obtained are corrupted with a Gaussian 
+noise of specified signal to noise ratio (SNR).
+We consider SNR dB levels in the set $\{20, 30, 40, 50, 60\}$ added to each 
+component of the electric and magnetic fields.
 
 \begin{figure}[h]
 \centering
@@ -308,9 +336,11 @@ points are located around the sphere on a circle of radius $R_m$.}
 \label{fig:geometry_sphere}
 \end{figure}
 
-The inversion is carried with the DE algorithm with a population size of $N_p = 10$.
-The parameters related to the termination of the algorithm  are set as $N_{lim} = 100$, $f_{conv} = 0.01$ and $N_{conv} = 10$.
-The range over which the solutions are searched for is $\varepsilon_r \in (1, 20)$ and $\beta \in (-1, 1)$.
+The inversion is carried out with the DE algorithm with a population 
+size of $N_p = 10$.  The parameters related to the termination of the 
+algorithm  are set as $N_{lim} = 100$, $f_{conv} = 0.01$ and $N_{conv} = 10$.
+The range over which the solutions are searched for is 
+$\varepsilon_r \in (1, 20)$ and $\beta \in (-1, 1)$.
 
 \begin{table}
 \resizebox{\linewidth}{!}{
@@ -352,47 +382,91 @@ The range over which the solutions are searched for is $\varepsilon_r \in (1, 20
     has a frequency of $f_s = 50$ MHz and a direction of 
     propagation which is perpendicular to the axis of rotation of the 
     sphere.  The actual value of $\varepsilon_r$ is 8. Three values of 
-    the speeds $\beta$ are considered and the results are averaged 
+    the speed $\beta$ are considered and the results are averaged 
     over four test runs.}
 \label{table:comparison_of_algorithms}
 \end{table}
 
-Table \ref{table:comparison_of_algorithms} summarizes the results for the case when SNR = 40 dB for three different values of $\beta$
-which are in the set $\{ 8\times 10^{-3}, 8\times 10^{-4}, 8\times 10^{-5}\}$.
-The general algorithm tries to find both the unknowns together using the DE algorithm
-with the cost function in \eqref{eq:cost_fuction_general} and with ${\bf u} = (\varepsilon_r, \beta)$.
-As described in the previous section, the two-step procedure first tries to find the solution for ${\bf u}_1 = \varepsilon_r$ by minimizing the cost function in \eqref{eq:cost_fuction_step1}
-by ignoring any rotation of the media.
-The approximate solution thus found in the first step is then used in the second step to solve for the value of ${\bf u}_2 = \beta$ by minimizing the cost function in \eqref{eq:cost_fuction_step2}.
+Table \ref{table:comparison_of_algorithms} summarizes the results for the case 
+SNR = 40 dB for the three values of $\beta$ indicated above.
+The general algorithm tries to find both the unknowns together using the 
+DE algorithm with the cost function in \eqref{eq:cost_fuction_general} and with 
+${\bf u} = (\varepsilon_r, \beta)$.
+As described in the previous section, the two-step procedure first tries to find 
+the solution for ${\bf u}_1 = \varepsilon_r$ by minimizing the cost function in 
+\eqref{eq:cost_fuction_step1} by ignoring any rotation of the media.
+The approximate solution thus found in the first step is then used in the second 
+step to solve for the value of ${\bf u}_2 = \beta$ by minimizing the cost 
+function in \eqref{eq:cost_fuction_step2}.
 
-Considering the stochastic nature of the optimization algorithm, all the results are averaged over four test runs for each configuration.
-As can be seen from the table, for SNR = 40 dB, both the algorithms give good results when the value of $\beta = 8\times 10^{-3}$.
-The relative errors in $\varepsilon_r$ are 0.0139 percent and 0.0112 percent for the general algorithm and the two-step procedure respectively.
+Considering the stochastic nature of the optimization algorithm, all the 
+results are averaged over four test runs for each configuration.
+As can be seen from the table, for SNR = 40 dB, both the algorithms give good 
+results when the value of $\beta = 8\times 10^{-3}$.
+The relative errors in $\varepsilon_r$ are 0.0139 percent and 0.0112 percent 
+for the general algorithm and the two-step procedure respectively.
 The corresponding relative errors in $\beta$ are 0.467 percent and 0.266 percent.
-However, the two-step procedure is able to find the solution in 1 hour and 15 minutes whereas the general algorithm took 2 hours and 3 minutes to find the solution.
-The performance of the two-step procedure improves relative to the general procedure when the rotating speeds are lower.
-For $\beta = 8\times 10^{-4}$, the two-step procedure obtains the solutions for $\varepsilon_r$ and $\beta$ with relative errors of 0.00374 percent and 2.54 percent respectively.
-The corresponding relative errors in the solution obtained from the general algorithm are 0.0179 percent and 13.4 percent.
-Finally when $\beta = 8\times 10^{-5}$, the general algorithm give completely unreliable result for $\beta$ while the two-step procedure gives a value with 34.3 percent relative error.
+However, the two-step procedure is able to find the solution in 1 hour 
+and 15 minutes whereas the general algorithm took 2 hours and 3 minutes to 
+find the solution.
+The performance of the two-step procedure improves relative to the general 
+procedure when the rotating speeds are lower.
+For $\beta = 8\times 10^{-4}$, the two-step procedure obtains the solutions 
+for $\varepsilon_r$ and $\beta$ with relative errors of 0.00374 percent 
+and 2.54 percent respectively.
+The corresponding relative errors in the solution obtained from the general 
+algorithm are 0.0179 percent and 13.4 percent.
+Finally when $\beta = 8\times 10^{-5}$, the general algorithm give completely 
+unreliable result for $\beta$ while the two-step procedure gives a value with 
+34.3 percent relative error.
 
-In conclusion, the two-step procedure provides more accurate solutions than the general algorithm as the rotating speed gets lower.
-The time of simulation is much lower for the two-step procedure than the general algorithm.
-The solutions are reliable for lower values of speeds as long as the noise level is not too high.
+In conclusion, the two-step procedure provides more accurate solutions than 
+the general algorithm as the rotating speed gets lower.
+The time of simulation is much lower for the two-step procedure than the 
+general algorithm. The solutions are reliable for lower values of speed 
+as long as the noise level is not too high.
 It can be noted that although the two-step
 procedure is proposed assuming that the speeds are not too
 high, the numerical results show that it is applicable even
-for the highest of velocity values that can be of practical
+for the highest of the velocity values that can be of practical
 relevance.
+
+To get an indication on how larger values of rotating speed can affect the 
+accuracy of the two-step algorithm, the error values from both the algorithms 
+are provided in Fig. \ref{fig:error_beta_vs_beta_comparison_of_algorithms} 
+for $\beta$ values in the set 
+$\{4\times 10^{-3}, 8\times 10^{-3}, 1.6\times 10^{-2}, 3.2\times 10^{-2},
+6.4\times 10^{-2}, 1.28\times 10^{-1}\}$.
+The results indicate that, for the homogeneous medium considered 
+($\varepsilon_r=8$), the two-step algorithm performs better than the 
+general algorithm for values of $\beta$ that are less than around 
+$2.75 \times 10^{-2}$. Although the exact values can change with the dielectric
+medium, the results confirm that the two-step algorithm provides accurate 
+results for all practical speeds that can be of interest.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{figure_error_vs_beta_sphere_comparison_between_algorithms.eps}
+\caption{The mean relative error in the reconstructed value of $\beta$ vs the value of $\beta$  for the rotating sphere. 
+         The result obtained from the two-step algorithm is compared with that obtained using the general algorithm.
+         The measured fields are corrupted with SNR level of 40 dB.}
+\label{fig:error_beta_vs_beta_comparison_of_algorithms}
+\end{figure}
 
 To better understand how the results of the two-step procedure 
 are affected by the noise in the scattered field data 
 we give the effect of SNR values on the error in the reconstructed speed
 obtained using the two-step procedure.
-In Fig. \ref{fig:error_beta_vs_SNR} the mean relative error in the reconstructed value of $\beta$ is plotted against the SNR levels in dB.
-The plots for three rotating speeds, $\beta \in \{  8\times 10^{-3}, 8\times 10^{-4}, 8\times 10^{-5}\}$, are shown.
-For $\beta =  8\times 10^{-3}$, the relative error is  just 0.032 percent for SNR = 60 dB and it increases to 8.2 percent when SNR = 20 dB.
-When $\beta = 8\times 10^{-4}$, the average relative error values are 0.35 percent for SNR = 60 dB and 27 percent  for SNR = 20 dB.
-Finally, for $\beta = 8\times 10^{-5}$, the average relative errors are 4.47 percent for SNR = 60 dB and 493.6 percent for SNR = 20dB.
+In Fig. \ref{fig:error_beta_vs_SNR} the mean relative error in the 
+reconstructed value of $\beta$ is plotted against the SNR levels in dB.
+The plots for three rotating speeds, 
+$\beta \in \{  8\times 10^{-3}, 8\times 10^{-4}, 8\times 10^{-5}\}$, are shown.
+For $\beta =  8\times 10^{-3}$, the relative error is  just 0.032 percent for 
+SNR = 60 dB and it increases to 8.2 percent when SNR = 20 dB.
+When $\beta = 8\times 10^{-4}$, the average relative error values 
+are 0.35 percent for SNR = 60 dB and 27 percent  for SNR = 20 dB.
+Finally, for $\beta = 8\times 10^{-5}$, the average relative errors are 
+4.47 percent for SNR = 60 dB and 493.6 percent for SNR = 20dB.
 It can be noted that for small values of $\beta$ the effects of motion
 on the electromagnetic field are small and the noise can easily
 affect the field more than motion. In these cases accurate
@@ -410,85 +484,134 @@ achieved.
 
 \subsection{Performance of two-step procedure with simpler sensors} \label{subsec:prefromance_of_two_step}
 
-In the previous subsection we examined the performance of the reconstruction algorithm when the measurement of the complex fields was available on the full circle outside the scatterer.
-Now we examine the performance of the two-step algorithm under limitations introduced by the sensors.
-First we study the effect of restricting the measurement points to only a small portion along the backscattering direction.
-After that we also investigate the effect of having only the amplitude data for the electromagnetic fields which can allow us to use much simpler sensors.
+In the previous subsection we examined the performance of the reconstruction 
+algorithm when the measurement of the complex fields was available on the full 
+circle outside the scatterer.
+Now we examine the performance of the two-step algorithm under limitations 
+introduced by the sensors.
+First we study the effect of restricting the measurement points to only 
+a small portion along the backscattering direction.
+After that we also investigate the effect of having only the amplitude data 
+for the electromagnetic fields which can allow us to use much simpler sensors.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_SNR_sphere_rotating_backscatt.eps}
-\caption{The mean relative error in the reconstructed value of $\beta$ vs the SNR levels in dB for the rotating sphere using data in the backscattered direction.
-	The results are shown for three different values of $\beta$.}
+\caption{The mean relative error in the reconstructed value of $\beta$ vs the 
+         SNR levels in dB for the rotating sphere using data in the 
+         backscattered direction. The results are shown for three different 
+         values of $\beta$.}
 \label{fig:error_beta_vs_SNR_backscatt}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_SNR_sphere_rotating_backscatt_amplitude_only.eps}
-\caption{The mean relative error in the reconstructed absolute value of $\beta$ vs the SNR levels in dB for the rotating sphere using amplitude only data in the backscattered direction.
-	The results are shown for three different values of $\beta$.}
+\caption{The mean relative error in the reconstructed absolute value of 
+         $\beta$ vs the SNR levels in dB for the rotating sphere using 
+         amplitude only data in the backscattered direction. The results are 
+         shown for three different values of $\beta$.}
 \label{fig:error_beta_vs_SNR_backscatt_backscatt_amplitude_only}
 \end{figure}
 
-The results obtained by considering only the measurement points along the backscattered direction are provided in Fig. \ref{fig:error_beta_vs_SNR_backscatt}.
-For this we use only the portion of measurement data that belongs to an arc subtending an angle of 90 degrees along the backscattering direction.
-So we considered 50 measurement points on an arc on xz plane of radius 1.5 m from the center of the scatterer.
-It is observed that the reconstruction algorithm still works well with such a restriction.
-For example for $\beta = 8\times 10^{-4}$ and with SNR = 60 dB, the relative error in the reconstructed value of $\beta$  is  0.55 percent as compared to 0.35 percent obtained previously
-using the data on the full circle. For $\beta = 8\times 10^{-4}$ and SNR = 40 dB, the corresponding values are 3.4 percent and 2.5 percent.
-With  $\beta = 8\times 10^{-4}$ and SNR = 20 dB the errors become 108.1 percent using the data along backscattered direction  as opposed to 27.3 percent with the data on the full circle.
+The results obtained by considering only the measurement points along the 
+backscattered direction are provided in 
+Fig. \ref{fig:error_beta_vs_SNR_backscatt}.
+For this we use only the portion of measurement data that belongs to an arc 
+subtending an angle of 90 degrees along the backscattering direction.
+So we considered 50 measurement points on an arc on xz plane of radius 1.5 m 
+from the center of the scatterer. It is observed that the reconstruction 
+algorithm still works well with such a restriction.
+For example for $\beta = 8\times 10^{-4}$ and with SNR = 60 dB, the relative 
+error in the reconstructed value of $\beta$  is  0.55 percent as compared 
+to 0.35 percent obtained previously using the data on the full circle. 
+For $\beta = 8\times 10^{-4}$ and SNR = 40 dB, the corresponding values are 
+3.4 percent and 2.5 percent.
+With  $\beta = 8\times 10^{-4}$ and SNR = 20 dB the errors become 108.1 
+percent using the data along backscattered direction  as opposed to 27.3 
+percent with the data on the full circle.
 
-Next we examine the effect of using sensors that can measure only the amplitude of the electromagnetic fields.
-For this case we have to modify the cost functions involved so that only differences in the magnitudes of each component of the fields are considered.
-The measurement points used for the reconstruction are the same as those in the previous step involving only backscattered fields.
-In this case it is not possible to distinguish between the clockwise and anticlockwise rotations and therefore we have to consider only the absolute value of the
-reconstructed $\beta$.
-The results are provided in Fig. \ref{fig:error_beta_vs_SNR_backscatt_backscatt_amplitude_only}.
-As expected, the accuracy is not as good as the results obtained with both amplitude and phase information.
-For example, with $\beta = 8\times 10^{-4}$ and with SNR = 40 dB, the error in the reconstructed speed is 64.1 percent as opposed to 3.4 percent error obtained using both amplitude and phase measurements.
+Next we examine the effect of using sensors that can measure only the 
+amplitude of the electromagnetic fields.
+For this case we have to modify the cost functions involved so that only 
+differences in the magnitudes of each component of the fields are considered.
+The measurement points used for the reconstruction are the same as those in 
+the previous step involving only backscattered fields.
+In this case it is not possible to distinguish between the clockwise and 
+anticlockwise rotations and therefore we have to consider only the absolute 
+value of the reconstructed $\beta$.
+The results are provided in 
+Fig. \ref{fig:error_beta_vs_SNR_backscatt_backscatt_amplitude_only}.
+As expected, the accuracy is not as good as that obtained with both 
+amplitude and phase information.
+For example, with $\beta = 8\times 10^{-4}$ and with SNR = 40 dB, the error 
+in the reconstructed speed is 64.1 percent as opposed to 3.4 percent 
+obtained using both amplitude and phase measurements.
 However, with less noisy data the accuracy is acceptable as in the case with
-$\beta = 8\times 10^{-4}$ and with SNR = 60 dB, where we get an  error in the reconstructed speed of 1.28 percent.
-Similar comparisons can be made for the case of $\beta = 8\times 10^{-3}$ and $\beta = 8\times 10^{-5}$ shown in the figures and the results are good when the speed is not very small and the SNR is good enough.
+$\beta = 8\times 10^{-4}$ and with SNR = 60 dB, where we get an  error in the 
+reconstructed speed of 1.28 percent.
+Similar comparisons can be made for the case of $\beta = 8\times 10^{-3}$ and 
+$\beta = 8\times 10^{-5}$ shown in the figures and the results are good when 
+the speed is not very small and the SNR is good enough.
 
-Therefore in conclusion, we still get good solutions for the rotating speeds when the measurement is restricted to the backscattering direction.
+Therefore in conclusion, we still get good solutions for the rotating speeds 
+when the measurement is restricted to the backscattering direction.
 The results are degraded when only amplitude data are available but 
 the errors are still small provided that the noise does not overwhelm
 the effects of motion.
 
 \subsection{Reconstruction of the speed of rotation from far-field data} \label{subsec:reconstruction_from_farfield}
-So far, we concentrated on the performance of the reconstruction algorithm using the total field data in the near-field region.
-Next, let us analyze the performance of the algorithm with the scattered electromagnetic field in the far-field region.
-For this we consider the measurement arc on xz plane in the backscattered direction of radius $1.5 \times 10^{3}$ m from the center of the scatterer.
+So far, we concentrated on the performance of the reconstruction algorithm 
+using the total field data in the near-field region.
+Next, let us analyze the performance of the algorithm with the scattered 
+electromagnetic field in the far-field region.
+For this we consider the measurement arc on xz plane in the backscattered 
+direction of radius $1.5 \times 10^{3}$ m from the center of the scatterer.
 The results are plotted in Fig. \ref{fig:error_beta_vs_SNR_farfield}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_SNR_sphere_rotating_farfield.eps}
-\caption{The mean relative error in the reconstructed value of $\beta$ vs the SNR levels in dB for the rotating sphere using far-field data in the backscattered direction.
-	The results are shown for three different values of $\beta$.}
+\caption{The mean relative error in the reconstructed value of $\beta$ vs the 
+         SNR levels in dB for the rotating sphere using far-field data in 
+         the backscattered direction. The results are shown for three 
+         different values of $\beta$.}
 \label{fig:error_beta_vs_SNR_farfield}
 \end{figure}
 
-The algorithm performs well for $\beta = 8\times 10^{-3}$ and the error for SNR values greater than or equal to 30 dB is less than 2.2 percent and is 13.1 percent for SNR of 20 dB.
-However, for $\beta = 8\times 10^{-4}$, the error in the reconstructed value of $\beta$ is 3.7 percent for SNR of 60 dB and is around 9 percent for 40 dB and rises to 23 percent for 30 dB SNR.
-Finally, for  $\beta = 8\times 10^{-5}$, the reconstruction algorithm performs very poorly for the considered values of SNR. 
-The error for 60 dB SNR in the data is 4 percent while for 50 dB the error is 19.3 percent and rises to unacceptable levels as the noise increases.
+The algorithm performs well for $\beta = 8\times 10^{-3}$ and the error for 
+SNR values greater than or equal to 30 dB is less than 2.2 percent and is 
+13.1 percent for SNR of 20 dB.
+However, for $\beta = 8\times 10^{-4}$, the error in the reconstructed value 
+of $\beta$ is 3.7 percent for SNR of 60 dB and is around 9 percent for 40 dB 
+and rises to 23 percent for 30 dB SNR.
+Finally, for  $\beta = 8\times 10^{-5}$, the reconstruction algorithm performs 
+very poorly for the considered values of SNR. 
+The error for 60 dB SNR in the data is 4 percent while for 50 dB the error is 
+19.3 percent and rises to unacceptable levels as the noise increases.
 
-Let us also examine the effect of error in the knowledge of the axis of rotation of the scatterer.
-For this we may generate the measurement data using the forward model on an arc whose plane is rotated by some degree $\alpha$ from the xz plane while still using the
-old set of points for the reconstruction algorithm.
-The results with such an approach is shown in Fig. \ref{fig:error_beta_vs_SNR_farfield_error_10_degree} for $\alpha = 10^{\circ}$.
+Let us also examine the effect of error in the knowledge of the axis of 
+rotation of the scatterer.
+For this we may generate the measurement data using the forward model on an 
+arc whose plane is rotated by an angle $\alpha$ from the xz plane while still 
+using the old set of points for the reconstruction algorithm.
+The results with such an approach is shown in 
+Fig. \ref{fig:error_beta_vs_SNR_farfield_error_10_degree} 
+for $\alpha = 10^{\circ}$.
 For $\beta = 8\times 10^{3}$, the algorithm is able to find the value of the
-rotating speed with an error of less than 1.6 percent for SNR values greater than or equal to 30 dB.
-The error for $\beta = 8\times 10^{-4}$ is 1.3 percent for SNR of 60 dB, 15.1 percent for SNR of 40 dB  SNR and 22.8 percent for SNR of 30 dB.
+rotating speed with an error of less than 1.6 percent for SNR values greater 
+than or equal to 30 dB.
+The error for $\beta = 8\times 10^{-4}$ is 1.3 percent for SNR of 60 dB, 
+15.1 percent for SNR of 40 dB  and 22.8 percent for SNR of 30 dB.
 Finally, for $\beta = 8 \times 10^{-5}$, the results for the considered 
-values of SNR are unreliable with a 36 percent error even for SNR of 60 dB, which rises to 102 percent error for SNR of 40 dB.
+values of SNR are unreliable with a 36 percent error even for SNR of 60 dB, 
+which rises to a 102 percent error for SNR of 40 dB.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_SNR_sphere_rotating_farfield_error_10_degree.eps}
-	\caption{The mean relative error in the reconstructed value of $\beta$ vs the SNR levels in dB for the rotating sphere using far-field data
+	\caption{The mean relative error in the reconstructed value of $\beta$ vs 
+    the SNR levels in dB for the rotating sphere using far-field data
 	in the backscattered direction and $\alpha = 10^{\circ}$.
 	The results are shown for three different values of $\beta$.}
 \label{fig:error_beta_vs_SNR_farfield_error_10_degree}
@@ -496,41 +619,54 @@ values of SNR are unreliable with a 36 percent error even for SNR of 60 dB, whic
 
 \subsection{The effect of different dielectric media} \label{subsec:effect_of_dielectric_media}
 
-Let us also examine the effect of changing the dielectric parameter, $\varepsilon_r$, on the accuracy of
-the reconstructed speed. The result for a rotating speed of $\beta = 8 \times 10^{-4}$ is presented in 
+Let us also examine the effect of changing the dielectric parameter, 
+$\varepsilon_r$, on the accuracy of the reconstructed speed. 
+The result for a rotating speed of $\beta = 8 \times 10^{-4}$ is presented in 
 Fig. \ref{fig:error_beta_vs_epsilonr_beta_8e-4}.
-The measurement are considered at $M = 200$ points on a circle of radius $R_m = 1.5$ m. 
+The measurements are considered at $M = 200$ points on a circle of 
+radius $R_m = 1.5$ m. 
 The permittivity values considered are $\varepsilon_r \in \{4, 8, 12, 16, 20\}$, 
 and the results are shown for three noise levels, SNR $\in \{30, 40, 50\}$ (dB).
-The reconstruction becomes more difficult if the scattering is weak and therefore
-we can in general expect a larger error for smaller values of $\varepsilon_r$. 
-This trend can be confirmed from the obtained results.
-For instance, with SNR = 40 dB, the relative error is 70 percent for $\varepsilon_r =4$
-while it reduces to 5.5 percent for $\varepsilon_r = 20$.
-Similarly the error goes from 100 percent to 25 percent 
-for SNR = 30 dB and from 20 percent to 2.4 percent SNR = 50 dB,
+The reconstruction becomes more difficult if the scattering is weak and 
+therefore we can in general expect a larger error for smaller values of 
+$\varepsilon_r$.  This trend can be confirmed from the obtained results.
+For instance, with SNR = 40 dB, the relative error is 25.7 percent for 
+$\varepsilon_r =4$ while it reduces to 0.37 percent for $\varepsilon_r = 20$.
+Similarly the error goes from 140 percent to 1.5 percent 
+for SNR = 30 dB and from 2.99 percent to 0.069 percent for SNR = 50 dB,
 as $\varepsilon_r$ increases from 4 to 20.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_epsilonr_sphere_rotating_beta_8e-4.eps}
-	\caption{The mean relative error in the reconstructed value of $\beta$ vs $\varepsilon_r$
-             for the rotating sphere with $\beta = 8\times 10^{-4}$ and the measurements 
+	\caption{The mean relative error in the reconstructed value of $\beta$ 
+             vs $\varepsilon_r$ for the rotating sphere with 
+             $\beta = 8\times 10^{-4}$ and the measurements 
              are considered at $M=200$ points on a circle of $R_m = 1.5$ m. 
              The results are shown for three different values of SNR.}
 \label{fig:error_beta_vs_epsilonr_beta_8e-4}
 \end{figure}
 
 \subsection{Reconstruction of the speed of rotating torus} \label{subsec:reconstruction_rotating_torus}
-All the previous results were obtained for rotating sphere which admitted a semi analytic solution for the forward problem.
-Now we apply the algorithm to rotating homogeneous torus for which analytic solutions are not available, due to which a numerical forward solver has to be exploited.
-The direct solution for the fields is obtained using a finite element method \cite{jin}, \cite{kalarickel2020well}.
-The solver is implemented using a model in the commercial simulator COMSOL Multiphysics (COMSOL, Burlington, MA).
-The axis of symmetry of the torus is taken as z axis about which the torus rotates with an angular velocity of $\omega_s$.
-The major radius, $R_{tor}$, and the minor radius, $r_{tor}$, of the torus \cite{kalarickel2020well} are taken as respectively 0.75 m and 0.25 m. The geometry of the test case is shown Fig. \ref{fig:geometry_torus}.
-We may express the speed of rotation using the normalized quantity $\beta = \frac{\omega_s(R_{tor} + r_{tor})}{c_0}$.
-The scattering medium is characterized by $\varepsilon_r = 8$ and $\mu_r = 1$.
-It is illuminated by a plane wave incident along the x axis, polarized along z axis and with a frequency $f_s = 150$ MHz.
+All the previous results were obtained for rotating sphere which admits 
+a semi analytic solution for the forward problem.
+Now we apply the algorithm to rotating homogeneous torus for which analytic 
+solutions are not available; 
+a numerical forward solver has to be exploited instead.
+The direct solution for the fields is obtained using a finite element method 
+\cite{jin}, \cite{kalarickel2020well}.
+The solver is implemented using a model in the commercial simulator 
+COMSOL Multiphysics (COMSOL, Burlington, MA).
+The axis of symmetry of the torus is taken as the z axis about which the torus 
+rotates with an angular velocity of $\omega_s$.
+The major radius, $R_{tor}$, and the minor radius, $r_{tor}$, of the torus 
+\cite{kalarickel2020well} are taken as respectively 0.75 m and 0.25 m. 
+The geometry of the test case is shown Fig. \ref{fig:geometry_torus}.
+We may express the speed of rotation using the normalized quantity 
+$\beta = \frac{\omega_s(R_{tor} + r_{tor})}{c_0}$. The scattering medium at 
+rest is characterized by $\varepsilon_r = 8$ and $\mu_r = 1$.
+It is illuminated by a plane wave incident along the x axis, polarized along 
+z axis and with a frequency $f_s = 150$ MHz.
 
 \begin{figure}[h]
 \centering
@@ -543,32 +679,44 @@ It is illuminated by a plane wave incident along the x axis, polarized along z a
 \label{fig:geometry_torus}
 \end{figure}
 
-The numerical domain is set to $R_d = 4$ m and the measurement data are taken at $M = 200$ uniformly placed points on a circle in xz plane of radius $R_m = 1.5$ m.
-The variational formulation is implemented in the mathematics module of the COMSOL Multiphysics using a second order edge element formulation.
-A tetrahedral meshing is done with 241181 elements, 41605 nodes and 9438 boundary elements.
-The algebraic solver used is GMRES with a tolerance of $10^{-4}$ and with geometric multigrid preconditioner.
-The reconstruction algorithm searches for the optimal value of $\beta$ in the range $(0, 10^{-2})$ and the parameters of the DE optimizer are the same as before
-($N_p = 10$, $N_{lim} = 100$, $f_{conv} = 0.01$, $N_{conv} = 10$).
-The measured data is corrupted with noise as before with SNR levels varying from 20 dB to 60 dB.
-Compared to the analytical solutions, the numerical solvers produce additional noise in the form of discretization errors and the tolerance
-in algebraic solver which could affect the performance of the inverse algorithm.
+The numerical domain is set to $R_d = 4$ m and the measurement data are taken 
+at $M = 200$ uniformly placed points on a circle in xz plane of radius 
+$R_m = 1.5$ m. The variational formulation is implemented in the mathematics 
+module of the COMSOL Multiphysics using a second order edge element formulation.
+A tetrahedral meshing is done with 241181 elements, 41605 nodes and 
+9438 boundary elements.  The algebraic solver used is GMRES with a tolerance 
+of $10^{-4}$ and with geometric multigrid preconditioner.
+The reconstruction algorithm searches for the optimal value of $\beta$ in the 
+range $(0, 10^{-2})$ and the parameters of the DE optimizer are the same as 
+before ($N_p = 10$, $N_{lim} = 100$, $f_{conv} = 0.01$, $N_{conv} = 10$).
+The measured data is corrupted with noise as before with SNR levels varying 
+from 20 dB to 60 dB.  Compared to the analytical solutions, the numerical 
+solvers produce additional noise, due to discretization errors and 
+the tolerance in algebraic solver, which could affect the performance of the 
+inverse algorithm.
 
-The results are shown in Fig. \ref{fig:error_beta_vs_SNR_torus} for values of $\beta \in \{8 \times 10^{-3}, 8 \times 10^{-4}, 8 \times 10^{-5}\}$.
-For $\beta = 8\times 10^{-3}$, the relative error in the solution is less than 1.6 percent when SNR in the measured data is greater than or equal to 30 dB.
-In the case of $\beta = 8\times 10^{-4}$, the relative errors are 2.14 percent for 50 dB SNR, 13.9 percent for 40 dB SNR and 21.6 percent for 30 dB SNR.
+The results are shown in Fig. \ref{fig:error_beta_vs_SNR_torus} for values 
+of $\beta \in \{8 \times 10^{-3}, 8 \times 10^{-4}, 8 \times 10^{-5}\}$.
+For $\beta = 8\times 10^{-3}$, the relative error in the solution is less than 
+1.6 percent when SNR in the measured data is greater than or equal to 30 dB.
+In the case of $\beta = 8\times 10^{-4}$, the relative errors are 2.14 percent 
+for 50 dB SNR, 13.9 percent for 40 dB SNR and 21.6 percent for 30 dB SNR.
 When $\beta = 8\times 10^{-5}$, the relative errors are very high.
-It is 16.7 percent for 60 dB SNR, 29.9 percent for 50 dB SNR and more than 100 percent when SNR is greater than or equal to 40 dB.
-As mentioned before, the additional noise in the numerical solver is a reason for the worse performance of the reconstruction algorithm compared to
+It is 16.7 percent for 60 dB SNR, 29.9 percent for 50 dB SNR and more than 
+100 percent when SNR is greater than or equal to 40 dB.
+As mentioned before, the additional noise in the numerical solver is a reason 
+for the worse performance of the reconstruction algorithm compared to
 the case with semi analytic forward solver.
 In particular, for small values of the
 rotating speed, we need not only to perform very accurate
-measurements of the field but also to reduce numerical errors
+measurements of the fields but also to reduce numerical errors
 in order to get reliable results.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figure_beta_error_vs_SNR_torus_rotating.eps}
-	\caption{The mean relative error in the reconstructed value of $\beta$ vs the SNR levels in dB for the rotating torus
+	\caption{The mean relative error in the reconstructed value of $\beta$ 
+    vs the SNR levels in dB for the rotating torus
 	with measurement data on a circle of radius $R_m = 1.5$ m on the xz plane.
 	The results are shown for three different values of $\beta$.}
 \label{fig:error_beta_vs_SNR_torus}
@@ -583,18 +731,18 @@ axisymmetric objects from the scattered field data. A two-
 step algorithm was proposed for the inversion when the
 speeds are known to be not too large. In the first step, forward
 solver is employed assuming zero rotating speed and the
-geometric and dielectric data is reconstructed by minimizing
+geometric and dielectric data are reconstructed by minimizing
 the cost function. In the second step, the values from the first
 step are used to determine the rotating speed. By defining
 a test case involving rotating homogeneous sphere, the two-
-step procedure is compared with the straightforward inver-
-sion procedure which solves for all the unknowns together.
+step procedure is compared with the straightforward inversion 
+procedure which solves for all the unknowns together.
 It was established that the two-step procedure is much faster
 and also more accurate if the rotating speeds assume values
 of practical interest. The performance of the algorithm was
-tested with different types of noisy data: the near-field data,
-far-field data and amplitude only data were used as the
-input to the two-step procedure to obtain the rotating speeds.
+tested with different types of noisy data: near-field data,
+far-field data and amplitude only data were used as 
+inputs to the two-step procedure to obtain the rotating speeds.
 The results show that for relatively small speed values the
 two-step procedure can recover the velocity of rotation in
 a reliable way provided that the noise does not overwhelm
