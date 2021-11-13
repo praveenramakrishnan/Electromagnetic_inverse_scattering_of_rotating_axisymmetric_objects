@@ -1,4 +1,5 @@
-pdflatex --shell-escape access.tex
-bibtex access.aux
-pdflatex --shell-escape access.tex
+pdflatex --shell-escape Electromagnetic_inverse_scattering_of_rotating_axisymmetric_objects.tex
+bibtex Electromagnetic_inverse_scattering_of_rotating_axisymmetric_objects.aux
+pdflatex --shell-escape Electromagnetic_inverse_scattering_of_rotating_axisymmetric_objects.tex
 rm *.aux
+Electromagnetic_inverse_scattering_of_rotating_axisymmetric_objects.tex
